@@ -14,7 +14,7 @@ public class ImplCatalogoPokemon implements ICatalogoPokemon{
     }
     
     @Override
-    public Pokemon[] listPokemon() {
+    public Pokemon[] getPokemon() {
         return this.pokemons;
     }
     
@@ -27,7 +27,22 @@ public class ImplCatalogoPokemon implements ICatalogoPokemon{
 
     @Override
     public void addPokemon(Pokemon pokemon) {
-        pokemons[counter++] = pokemon;
+        boolean exist = false;
+        
+        for(int i = 0; i < counter; i++){
+            String nameOnList = pokemons[i].getName();
+            
+            if(pokemon.getName().equalsIgnoreCase(nameOnList)){
+                exist = true;
+            }
+        }
+        
+        if(exist){
+            System.out.println("The pokemon already exists, please add another one");
+        }else{
+            pokemons[counter++] = pokemon;
+            System.out.println("Pokemon was added succesfully");
+        }
     }
 
     @Override

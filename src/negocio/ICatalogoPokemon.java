@@ -7,7 +7,7 @@ public interface ICatalogoPokemon {
     
     
     
-    Pokemon[] listPokemon();
+    Pokemon[] getPokemon();
     
     void printPokemons();
     
